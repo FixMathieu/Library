@@ -1,8 +1,13 @@
+/**
+ * 
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.dao;
+
 import java.io.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
-//import java.sql.SQLException;
 import java.util.*;
 
 public class CreateConfigFile {
@@ -11,7 +16,7 @@ public class CreateConfigFile {
 	private static String login;
 	private static String password;
 	private static Connection connection = null;
-	//bloc d'initialisation static s'ex�cute une fois au chargement
+	//bloc d'initialisation static s'exécute une fois au chargement
 	
 	static {
 		Properties props = new Properties();
@@ -30,6 +35,7 @@ public class CreateConfigFile {
 		System.out.println(e.getMessage());
 		}
 		
+
 	}
 	
 	public static Connection getConnection() {
@@ -37,4 +43,6 @@ public class CreateConfigFile {
 		return connection;
 		
 	}
+	
 }
+

@@ -1,33 +1,67 @@
+/**
+ * 
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.entities;
 
 public class Article {
 	private int idArticle;
 	private String title;
-	private String condition;
-	private int category;
+	private String conditions;
+
 	private String editor;
 	private double unitaryPrice;
 	private int quantity;
+	private int idCategory;
 	
 	
 	
 	
-	@Override
-	public String toString() {
-		return "Article [idArticle=" + idArticle + ", title=" + title + ", condition=" + condition + ", category="
-				+ category + ", editor=" + editor + ", unitaryPrice=" + unitaryPrice + ", quantity=" + quantity + "]";
+	public Article(int idArticle, String title, String conditions, String editor, double unitaryPrice, int quantity,
+			int idCategory) {
+		super();
+		this.idArticle = idArticle;
+		this.title = title;
+		this.conditions = conditions;
+		this.editor = editor;
+		this.unitaryPrice = unitaryPrice;
+		this.quantity = quantity;
+		this.idCategory = idCategory;
 	}
-	public Article(int idArticle, String title, String condition, int category, String editor, double unitaryPrice,
+
+
+	public Article(int idArticle, String title, String conditions, String editor, double unitaryPrice,
 			int quantity) {
 		super();
 		this.idArticle = idArticle;
 		this.title = title;
-		this.condition = condition;
-		this.category = category;
+		this.conditions = conditions;
 		this.editor = editor;
 		this.unitaryPrice = unitaryPrice;
 		this.quantity = quantity;
 	}
+	
+	public Article(String title, String conditions, String editor, double unitaryPrice,
+			int quantity,int idCategory) {
+		super();
+		this.title = title;
+		this.conditions = conditions;
+		this.editor = editor;
+		this.unitaryPrice = unitaryPrice;
+		this.quantity = quantity;
+		this.idCategory = idCategory;
+	
+	}
+	public static String centerString(String str) {
+		if(str.length() >= 20) return str;
+		String dest = "                    ";
+		int deb = (20 - str.length())/2 ;
+		String data = new StringBuilder(dest).replace( deb, deb + str.length(), str ).toString();
+		return data;
+	}
+
+
 	public int getIdArticle() {
 		return idArticle;
 	}
@@ -40,18 +74,13 @@ public class Article {
 	public void setTitle(String title) {
 		this.title = title;
 	}
-	public String getCondition() {
-		return condition;
+	public String getConditions() {
+		return conditions;
 	}
-	public void setCondition(String condition) {
-		this.condition = condition;
+	public void setConditions(String conditions) {
+		this.conditions = conditions;
 	}
-	public int getCategory() {
-		return category;
-	}
-	public void setCategory(int category) {
-		this.category = category;
-	}
+
 	public String getEditor() {
 		return editor;
 	}
@@ -70,5 +99,23 @@ public class Article {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
+	public int getIdCategory() {
+		return idCategory;
+	}
+	public void setIdCategory(int idCategory) {
+		this.idCategory = idCategory;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Article [idArticle=" + idArticle + ", title=" + title + ", conditions=" + conditions + ", editor="
+				+ editor + ", unitaryPrice=" + unitaryPrice + ", quantity=" + quantity + ", idCategory=" + idCategory
+				+ "]";
+	}
+
+
+	
+	
 
 }

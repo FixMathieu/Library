@@ -10,9 +10,11 @@ import java.util.ArrayList;
 
 import java.util.logging.Logger;
 
+
+
 public interface Dao<T> {
 	public Connection connection = 
-			BddConnection.getConnection();
+			CreateConfigFile.getConnection();
 	//au chargement d'une classe qui implémente Dao, une création de connexion sera faite (gestion du multithreading à 2 verrous)
 	
 	public static final Logger logger = Logger.getLogger( "SqlExceptions" );

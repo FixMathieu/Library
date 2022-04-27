@@ -5,19 +5,24 @@ public class OrderItem {
 	private int idArticle;
 	private int quantity;
 	private double unitaryPrice;
+	private int idOrder;
 	
-	
-	
-	
-	
-	public OrderItem(int idOrderItem, int idArticle, int quantity, double unitaryPrice) {
+
+	public OrderItem(int idOrderItem, int idArticle, int quantity, double unitaryPrice, int idOrder) {
 		super();
 		this.idOrderItem = idOrderItem;
 		this.idArticle = idArticle;
 		this.quantity = quantity;
 		this.unitaryPrice = unitaryPrice;
-		
+		this.idOrder = idOrder;
 	}
+	public int getIdOrder() {
+		return idOrder;
+	}
+	public void setIdOrder(int idOrder) {
+		this.idOrder = idOrder;
+	}
+
 	public int getIdOrderItem() {
 		return idOrderItem;
 	}

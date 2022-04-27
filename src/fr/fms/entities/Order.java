@@ -5,24 +5,24 @@ import java.sql.Date;
 public class Order {
 	private int idOrder;
 	private Date date;
-	private int idUser;
 	private double amount;
+	private int idUser;
 	
 	
 	
 	
-	@Override
-	public String toString() {
-		return "Order [idOrder=" + idOrder + ", date=" + date + ", idUser=" + idUser + ", amount=" + amount + "]";
-		
-	}
-	public Order(int idOrder, Date date, int idUser, double amount) {
+	
+	public Order(int idOrder, Date date, double amount, int idUser) {
 		super();
 		this.idOrder = idOrder;
 		this.date = date;
-		this.idUser = idUser;
 		this.amount = amount;
+		this.idUser = idUser;
 	}
+	public Order(double total, java.util.Date date2, int idUser2) {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public int getIdOrder() {
 		return idOrder;
 	}
@@ -35,16 +35,23 @@ public class Order {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-	public int getIdUser() {
-		return idUser;
-	}
-	public void setIdUser(int idUser) {
-		this.idUser = idUser;
-	}
 	public double getAmount() {
 		return amount;
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
 	}
+	public int getIdUser() {
+		return idUser;
+	}
+	public void setIdUser(int idUser) {
+		this.idUser = idUser;
+	}
+	@Override
+	public String toString() {
+		return "Order [idOrder=" + idOrder + ", date=" + date + ", amount=" + amount + ", idUser=" + idUser + "]";
+	}
+	
+
+
 }

@@ -2,48 +2,49 @@ package fr.fms.entities;
 
 public class User {
 	private int idUser;
-	private String name;
+	private String nameUser;
 	private String email;
-	private String tel;
-	private String adress;
+	private String phone;
+	private String address;
 	private String login;
 	private String password;
 	
 	
 	
 	
-	@Override
-	public String toString() {
-		return "User [idUser=" + idUser + ", name=" + name + ", email=" + email + ", tel=" + tel + ", adress=" + adress
-				+ ", login=" + login + ", password=" + password + "]";
-	}
-
-
-
-	public User(int idUser, String name, String email, String tel, String adress, String login, String password) {
+	
+	
+	
+	
+	public User(int idUser, String nameUser, String email, String phone, String address, String login, String password) {
 		super();
 		this.idUser = idUser;
-		this.name = name;
+		this.nameUser = nameUser;
 		this.email = email;
-		this.tel = tel;
-		this.adress = adress;
+		this.phone = phone;
+		this.address = address;
 		this.login = login;
 		this.password = password;
 	}
-	
-	
-	
+	public User(String nameUser, String email, String phone, String address, String login, String password) {
+		this.nameUser = nameUser;
+		this.email = email;
+		this.phone = phone;
+		this.address = address;
+		this.login = login;
+		this.password = password;
+	}
 	public int getIdUser() {
 		return idUser;
 	}
 	public void setIdUser(int idUser) {
 		this.idUser = idUser;
 	}
-	public String getName() {
-		return name;
+	public String getNameUser() {
+		return nameUser;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setNameUser(String nameUser) {
+		this.nameUser = nameUser;
 	}
 	public String getEmail() {
 		return email;
@@ -51,17 +52,17 @@ public class User {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getTel() {
-		return tel;
+	public String getPhone() {
+		return phone;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
-	public String getAdress() {
-		return adress;
+	public String getAddress() {
+		return address;
 	}
-	public void setAdress(String adress) {
-		this.adress = adress;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 	public String getLogin() {
 		return login;
@@ -75,4 +76,18 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	@Override
+	public String toString() {
+		return "User [idUser=" + idUser + ", nameUser=" + nameUser + ", email=" + email + ", phone=" + phone
+				+ ", address=" + address + ", login=" + login + ", password=" + password + "]";
+	}
+	
+	
+	
+	
+
+
+
+
+
 }
