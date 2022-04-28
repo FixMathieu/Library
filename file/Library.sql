@@ -118,3 +118,6 @@ UPDATE T_Articles set IdCategory=7 WHERE IdArticle=15;
 UPDATE T_Articles set IdCategory=8 WHERE IdArticle=16;
 UPDATE T_Articles set IdCategory=9 WHERE IdArticle=17;
 
+--CREATE USER 'mat'@'localhost' IDENTIFIED BY '123';
+--GRANT ALL PRIVILEGES ON  Library.* TO 'mat'@'localhost';
+--FLUSH PRIVILEGES;

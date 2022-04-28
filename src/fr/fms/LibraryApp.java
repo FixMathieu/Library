@@ -64,8 +64,8 @@ public class LibraryApp{
 		System.out.println("2 : Retirer un article du panier");
 		System.out.println("3 : Afficher le contenu de mon panier, le total et passer commande");
 		System.out.println("4 : Afficher tous les articles en stock");
-		System.out.println("5 : Afficher toutes les catégories en base");
-		System.out.println("6 : Afficher tous les articles d'une catégorie");
+		System.out.println("5 : Afficher toutes les Thématiques en base");
+		System.out.println("6 : Afficher tous les articles d'une Thématique");
 		System.out.println("7 : Connexion à votre compte");
 		System.out.println("8 : sortir de l'application");
 	}
