@@ -115,6 +115,14 @@ public class Article {
 	}
 
 
+	public void getQuantity(int quantity) {
+		return;
+		
+	}
+
+
+
+
 	
 	
 

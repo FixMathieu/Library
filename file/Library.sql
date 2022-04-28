@@ -39,24 +39,29 @@ CREATE TABLE T_Admins (
 	Login varchar(30) NOT NULL,
 	Password varchar(30) NOT NULL
 );
---Table Order
+--Table Orders
 CREATE TABLE T_Orders (
 	IdOrder int(4) PRIMARY KEY AUTO_INCREMENT,
-	Date DATE,
-	Amount FLOAT(8)
+	Amount FLOAT(8),
+	Date DATE
+	
 );
---Table orderItem
-CREATE TABLE T_OrderItems (
+--Table Order_Items
+CREATE TABLE T_Order_Items (
 	IdOrderItem int(4) PRIMARY KEY AUTO_INCREMENT,
 	Quantity FLOAT(8),
 	UnitaryPrice int(4)
+
+	
 );
+--ALTER TABLE T_Orders ADD COLUMN IdUser int(4);
+--ALTER TABLE T_Orders ADD FOREIGN KEY(IdUser) REFERENCES T_Users(IdUser);
 
-ALTER TABLE T_OrderItems ADD COLUMN IdArticle int (4);
-ALTER TABLE T_OrderItems ADD FOREIGN KEY(IdArticle) REFERENCES T_Articles(IdArticle);
+ALTER TABLE T_Order_Items ADD COLUMN IdArticle int (4);
+ALTER TABLE T_Order_Items ADD FOREIGN KEY(IdArticle) REFERENCES T_Articles(IdArticle);
 
-ALTER TABLE T_OrderItems ADD COLUMN IdOrder int (4);
-ALTER TABLE T_OrderItems ADD FOREIGN KEY(IdOrder) REFERENCES T_Orders(IdOrder);
+ALTER TABLE T_Order_Items ADD COLUMN IdOrder int (4);
+ALTER TABLE T_Order_Items ADD FOREIGN KEY(IdOrder) REFERENCES T_Orders(IdOrder);
 
 ALTER TABLE T_Orders ADD COLUMN IdUser int (4);
 ALTER TABLE T_Orders ADD FOREIGN KEY(IdUser) REFERENCES T_Users(IdUser);

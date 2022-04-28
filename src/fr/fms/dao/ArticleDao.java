@@ -1,4 +1,5 @@
 /**
+ * Composant d'accès aux données de la table T_Articles dans la base de données library
  * 
  * @author Mathieu FIX - 2022
  * 
@@ -17,19 +18,7 @@ import fr.fms.entities.Article;
 
 public class ArticleDao implements Dao<Article> {
 
-//	@Override
-//	public boolean create(Article obj) {
-//		try (Statement statement = connection.createStatement()){
-//			String str = "INSERT INTO T_Articles (Title,Conditions,Editor,UnitaryPrice,Quantity,IdCategory)"
-//						+ " VALUES ('"+ obj.getTitle()+"' ,'" + obj.getConditions() + "',"+ obj.getEditor() + "',"+ obj.getUnitaryPrice()+ "',"+ obj.getQuantity()+ "',"+obj.getIdCategory()+" );";			
-//			int row = statement.executeUpdate(str);
-//			if(row == 1)		return true;
-//		} catch (SQLException e) {
-//			//e.printStackTrace();
-//			logger.log(Level.SEVERE,"pb sql sur la création d'un article");
-//		} 		
-//		return false;
-//	}
+
 	
 	
 	@Override
@@ -52,21 +41,7 @@ public class ArticleDao implements Dao<Article> {
 
 	}
 	
-	//exemple d'insertion avec preparedStatement -> évite les attaques par injection sql
-//	public void createPrepared(Article obj) {
-//		String str = "INSERT INTO T_Articles (Title, Conditions,Editor,UnitaryPrice,Quantity,idCategory) VALUES (?,?,?,?,?,?);";		//ToDo IdCategory
-//		try (PreparedStatement ps = connection.prepareStatement(str)){
-//			ps.setString(1, obj.getTitle());
-//			ps.setString(2, obj.getConditions());
-//			ps.setString(3, obj.getEditor());	
-//			ps.setDouble(4, obj.getUnitaryPrice());
-//			ps.setInt(5, obj.getQuantity());
-//			ps.setInt(6, obj.getIdCategory());
-//			if( ps.executeUpdate() == 1)	System.out.println("insertion ok");
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} 		
-//	}
+
 
 	@Override
 	public Article read(int id) {
@@ -80,23 +55,7 @@ public class ArticleDao implements Dao<Article> {
 		return null;
 	}
 
-//	@Override
-//	public boolean update(Article obj) {
-//		try (Statement statement = connection.createStatement()){
-//			String str = "UPDATE T_Articles set Title='" + obj.getTitle() +"' , " +
-//							                   "Conditions='" 		+ obj.getConditions() +"' , " +
-//							                   "Editor='" 		+ obj.getEditor() +"' , " +
-//							                   "UnitaryPrice='" + obj.getUnitaryPrice()+"' ,"+ 
-//							                   "Quantity='" 		+ obj.getQuantity() +"' , " +
-//							                   "IdCategory='" 		+ obj.getIdCategory() +"' , " +
-//							                   " where idArticle=" + obj.getIdArticle() + ";";			
-//			statement.executeUpdate(str);
-//			return true;
-//		} catch (SQLException e) {
-//			e.printStackTrace();
-//		} 	
-//		return false;
-//	}
+
 
 	@Override
 	public boolean update(Article obj) {

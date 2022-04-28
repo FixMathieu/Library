@@ -27,10 +27,10 @@ public class CreateConfigFile {
 			login = props.getProperty("db.login");
 			password=props.getProperty("db.password");
 
-			System.out.println("read configfile ok");
+			//System.out.println("read configfile ok");
 			Class.forName(driver);//charge la Class contenant les drivers 
 			connection=DriverManager.getConnection(url,login,password);
-			System.out.println("Class driver ok");
+			//System.out.println("Class driver ok");
 		}catch (Exception e) {
 		System.out.println(e.getMessage());
 		}
@@ -39,7 +39,7 @@ public class CreateConfigFile {
 	}
 	
 	public static Connection getConnection() {
-		System.out.println("connection ok");
+		//System.out.println("connection ok");
 		return connection;
 		
 	}

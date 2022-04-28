@@ -1,3 +1,9 @@
+/**
+ * Composant d'accès aux données de la table T_Categories dans la base de données library
+ * 
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.dao;
 
 import java.sql.Statement;

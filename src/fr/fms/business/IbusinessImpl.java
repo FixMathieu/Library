@@ -36,6 +36,7 @@ public class IbusinessImpl implements Ibusiness {
 		Article art = cart.get(article.getIdArticle());
 		if(art != null) {
 			art.setQuantity(art.getQuantity()+1);
+			
 		}
 		else cart.put(article.getIdArticle(), article);
 	}
@@ -61,7 +62,7 @@ public class IbusinessImpl implements Ibusiness {
 			Order order = new Order(total, new Date(), idUser);
 			if(orderDao.create(order)) {	//ajout en base de la commande
 				for(Article article : cart.values()) {	//ajout des commandes minifiées associées
-					orderItemDao.create(new OrderItem(0, article.getIdArticle(), article.getQuantity(), article.getUnitaryPrice(), order.getIdOrder()));
+					orderItemDao.create(new OrderItem(0, article.getQuantity(), article.getUnitaryPrice(), article.getIdArticle(), order.getIdOrder()));
 				}
 				return order.getIdOrder();
 			}
@@ -105,9 +106,9 @@ public class IbusinessImpl implements Ibusiness {
 	 * @param pwd
 	 * @return id de l'utilisateur, 0 si non trouvé
 	 */
-	public int existUser(String log, String pwd) {
+	public int existUser(String login, String password) {
 		for(User user : userDao.readAll())
-			if(user.getLogin().equalsIgnoreCase(log) && user.getPassword().equals(pwd))
+			if(user.getLogin().equalsIgnoreCase(login) && user.getPassword().equals(password))
 				return user.getIdUser();
 		return 0;
 	}

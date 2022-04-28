@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.dao;
 
 import java.sql.PreparedStatement;
@@ -10,13 +15,12 @@ public class OrderItemDao implements Dao<OrderItem> {
 
 	@Override
 	public boolean create(OrderItem obj) {
-		String str = "INSERT INTO T_Order_Items (IdArticle, Quantity, UnitaryPrice, IdOrder) VALUES (?,?,?,?);";	
-		try (PreparedStatement ps = connection.prepareStatement(str)){	
-			ps.setInt(1, obj.getIdArticle());
-			ps.setInt(2, obj.getQuantity());
-			ps.setDouble(3, obj.getUnitaryPrice());
+		String str = "INSERT INTO T_Order_Items ( Quantity, UnitaryPrice,IdArticle, IdOrder) VALUES (?,?,?,?);";	
+		try (PreparedStatement ps = connection.prepareStatement(str)){		
+			ps.setInt(1, obj.getQuantity());
+			ps.setDouble(2, obj.getUnitaryPrice());
+			ps.setInt(3, obj.getIdArticle());
 			ps.setInt(4, obj.getIdOrder());
-			
 			ps.executeUpdate();			
 			return true;
 		} catch (SQLException e) {

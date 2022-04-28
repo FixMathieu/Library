@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.dao;
 
 import fr.fms.entities.Article;

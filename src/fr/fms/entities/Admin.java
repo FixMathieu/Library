@@ -1,3 +1,7 @@
+/**
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.entities;
 
 public class Admin {

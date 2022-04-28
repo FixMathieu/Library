@@ -1,5 +1,6 @@
 /**
  * Composant d'accès aux données de la table T_Users dans la base de données library
+ * 
  * @author Mathieu FIX - 2022
  * 
  */

@@ -1,3 +1,7 @@
+/**
+ * @author Mathieu FIX - 2022
+ * 
+ */
 package fr.fms.entities;
 
 public class User {
@@ -8,12 +12,6 @@ public class User {
 	private String address;
 	private String login;
 	private String password;
-	
-	
-	
-	
-	
-	
 	
 	
 	public User(int idUser, String nameUser, String email, String phone, String address, String login, String password) {
