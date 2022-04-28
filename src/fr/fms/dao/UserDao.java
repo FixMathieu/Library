@@ -17,7 +17,9 @@ import java.util.logging.Level;
 import fr.fms.entities.User;
 
 public class UserDao implements Dao<User> {
-
+	/**
+	 * Méthode pour créer un utilisateur
+	 */
 	@Override
 	public boolean create(User obj) {
 		String str = "INSERT INTO T_Users (NameUser,Email,Phone,Address,Login,Password) VALUES (?,?,?,?,?,?);";
@@ -35,7 +37,9 @@ public class UserDao implements Dao<User> {
 		} 				
 		return false;
 	}
-
+	/**
+	 * Méthode pour voir un utilisateur en fonction de son Id
+	 */
 	@Override
 	public User read(int id) {
 		try (Statement statement = connection.createStatement()){
@@ -49,7 +53,9 @@ public class UserDao implements Dao<User> {
 		} 	
 		return null;
 	}
-
+	/**
+	 * Méthode pour modifier
+	 */
 	@Override
 	public boolean update(User obj) {
 		try {
@@ -72,7 +78,9 @@ public class UserDao implements Dao<User> {
 			return false;
 		}
 	}
-
+	/**
+	 * Méthode pour effacer
+	 */
 	@Override
 	public boolean delete(User obj) {
 		try (Statement statement = connection.createStatement()){
@@ -84,7 +92,9 @@ public class UserDao implements Dao<User> {
 		}
 		return true;
 	}
-
+	/**
+	 * Méthode pour voir l'ensemble
+	 */
 	@Override
 	public ArrayList<User> readAll() {
 		ArrayList<User> users = new ArrayList<User>();

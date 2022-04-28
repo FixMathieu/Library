@@ -14,7 +14,10 @@ import java.util.ArrayList;
 import fr.fms.entities.Category;
 
 public class CategoryDao implements Dao<Category>{
-
+	
+	/**
+	 * Méthode pour créer une catégorie
+	 */
 	@Override
 	public boolean create(Category obj) {
 		try {
@@ -30,7 +33,9 @@ public class CategoryDao implements Dao<Category>{
 		return true;
 		
 	}
-
+	/**
+	 * Méthode pour voir une categorie en fonction de son Id
+	 */
 	@Override
 	public Category read(int id) {
 		try (Statement statement = connection.createStatement()){
@@ -42,7 +47,9 @@ public class CategoryDao implements Dao<Category>{
 		} 	
 		return null;
 	}
-
+	/**
+	 * Méthode pour modifier
+	 */
 	@Override
 	public boolean update(Category obj) {
 		try {
@@ -60,7 +67,9 @@ public class CategoryDao implements Dao<Category>{
 			return false;
 		}
 	}
-
+	/**
+	 * Méthode pour effacer
+	 */
 	@Override
 	public boolean delete(Category obj) {
 		try (Statement statement = connection.createStatement()){
@@ -72,7 +81,9 @@ public class CategoryDao implements Dao<Category>{
 		} 	
 		return false;
 	}
-
+	/**
+	 * Méthode pour voir l'ensemble
+	 */
 	@Override
 	public ArrayList<Category> readAll() {
 		ArrayList<Category> categories = new ArrayList<Category>();

@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import fr.fms.entities.Order;
 
 public class OrderDao implements Dao<Order> {
-
+	/**
+	 * Méthode pour créer une pannier
+	 */
 	@Override
 	public boolean create(Order obj) {
 		String str = "INSERT INTO T_Orders (Amount , IdUser) VALUES (?,?);";	
@@ -34,26 +36,34 @@ public class OrderDao implements Dao<Order> {
 		}
 		return false;
 	}
-
+	/**
+	 * Méthode pour voir un pannier en fonction de son Id
+	 */
 
 	@Override
 	public Order read(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
+	/**
+	 * Méthode pour modifier
+	 */
 	@Override
 	public boolean update(Order obj) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	/**
+	 * Méthode pour effacer
+	 */
 	@Override
 	public boolean delete(Order obj) {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
+	/**
+	 * Méthode pour voir l'ensemble
+	 */
 	@Override
 	public ArrayList<Order> readAll() {
 		// TODO Auto-generated method stub

@@ -55,7 +55,9 @@ public class LibraryApp{
 			}
 		}
 	}
-//Méthode qui permet de voir le Menu
+/**
+ * Méthode qui permet de voir le Menu
+ */
 	public static void displayMenu() {	
 		if(login != null)	System.out.print("Compte : " + login);
 		System.out.println("\n" + "Pour réaliser une action, tapez le code correspondant :");
@@ -70,7 +72,9 @@ public class LibraryApp{
 		System.out.println("8 : sortir de l'application");
 	}
 	
-//Méthode qui permet de voir la liste d'articles
+/**
+ * Méthode qui permet de voir la liste d'articles
+ */
 	public static void displayArticles() { 		
 		System.out.println(
 				"+------+--------------------------------+------------+----------------------+------------+---------------+----------------------+");
@@ -87,7 +91,9 @@ public class LibraryApp{
 		}
 	}
 	
-//Méthode qui permet de voirles articles d'une categorie
+/**
+ * Méthode qui permet de voirles articles d'une categorie
+ */
 
 	private static void displayArticlesByCategoryId() {
 		System.out.println("saisissez l'id de la catégorie concerné");
@@ -111,7 +117,9 @@ public class LibraryApp{
 		else System.out.println("cette catégorie n'existe pas !");
 	}
 
-	//Méthode qui affiche les catégories
+	/**
+	 * Méthode qui affiche les catégories
+	 */
 	private static void displayCategories() {
 		System.out.println("+------+---------------------------+----------------------------------+");
 		System.out.printf("| %-5s| %-25s |  %-30s  |%n", " N°", "          Nom", "   Description");
@@ -123,7 +131,9 @@ public class LibraryApp{
 		}
 				
 	}
-	//Méthode qui permet de supprimer un article
+	/**
+	 * Méthode qui permet de supprimer un article
+	 */
 	public static void remArticle() {
 		System.out.println("Selectionner l'id de l'article à supprimer du panier :");
 		int id = scanInt();
@@ -131,7 +141,9 @@ public class LibraryApp{
 		displayCart(false);
 	}
 	
-	//méthode qui permet d'ajouter un article
+	/**
+	 * méthode qui permet d'ajouter un article
+	 */
 	public static void addArticle() {
 		System.out.println("Selectionner l'id de l'article à ajouter au panier : ");
 		int id = scanInt();
@@ -143,7 +155,10 @@ public class LibraryApp{
 		else System.out.println("l'article que vous souhaitez ajouter n'existe pas, pb de saisi id");
 	} 
 	
-//Méthode qui affiche le panier le total et passer commande
+/**
+ * Méthode qui affiche le panier le total et passer commande
+ * @param flag
+ */
 	private static void displayCart(boolean flag) {
 		if(business.isCartEmpty()) 	System.out.println("PANIER VIDE");
 		else {
@@ -183,7 +198,9 @@ public class LibraryApp{
 			}
 		}
 	}
-//Méthode pour la connection
+/**
+ * Méthode pour la connection
+ */
 	private static void connection() {
 		if(login != null)	System.out.println("vous êtes déjà connecté");
 		else {
@@ -200,7 +217,10 @@ public class LibraryApp{
 			else System.out.println("login ou password incorrect");
 		}
 	}
-//Méthode scan pour valider un entier
+/**
+ * Méthode scan pour valider un entier
+ * @return
+ */
 	public static int scanInt() {
 		while(!scan.hasNextInt()) {
 			System.out.println("saisissez une valeur entière svp");

@@ -20,7 +20,9 @@ public class ArticleDao implements Dao<Article> {
 
 
 	
-	
+	/**
+	 * Méthode pour créer un article
+	 */
 	@Override
 	public boolean create(Article obj) {
 		try {
@@ -41,8 +43,9 @@ public class ArticleDao implements Dao<Article> {
 
 	}
 	
-
-
+/**
+ * Méthode pour voir un article en fonction de son Id
+ */
 	@Override
 	public Article read(int id) {
 		try (Statement statement = connection.createStatement()){
@@ -55,8 +58,9 @@ public class ArticleDao implements Dao<Article> {
 		return null;
 	}
 
-
-
+/**
+ * Méthode pour modifier
+ */
 	@Override
 	public boolean update(Article obj) {
 		try {
@@ -79,7 +83,9 @@ public class ArticleDao implements Dao<Article> {
 			return false;
 		}
 	}
-
+/**
+ * Méthode pour effacer
+ */
 	@Override
 	public boolean delete(Article obj) {
 		try (Statement statement = connection.createStatement()){
@@ -91,7 +97,9 @@ public class ArticleDao implements Dao<Article> {
 		} 	
 		return false;
 	}
-
+/**
+ * Méthode pour voir l'ensemble
+ */
 	@Override
 	public ArrayList<Article> readAll() {
 		ArrayList<Article> articles = new ArrayList<Article>();
@@ -115,7 +123,11 @@ public class ArticleDao implements Dao<Article> {
 		}			
 		return articles;
 	}
-	
+	/**
+	 * Méthode pour voir les articles en fonction de leurs thèmatique
+	 * @param id
+	 * @return
+	 */
 	public ArrayList<Article> readAllByCat(int id) {
 		ArrayList<Article> articles = new ArrayList<Article>();
 		String strSql = "SELECT * FROM T_Articles where idCategory=" + id;		
