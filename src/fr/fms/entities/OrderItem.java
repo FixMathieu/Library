@@ -23,6 +23,11 @@ public class OrderItem {
 		this.idArticle = idArticle;
 		this.idOrder = idOrder;
 	}
+	
+	public OrderItem() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getIdOrderItem() {
 		return idOrderItem;
 	}
@@ -57,6 +62,11 @@ public class OrderItem {
 	public String toString() {
 		return "OrderItem [idOrderItem=" + idOrderItem + ", quantity=" + quantity + ", unitaryPrice=" + unitaryPrice
 				+ ", idArticle=" + idArticle + ", idOrder=" + idOrder + "]";
+	}
+
+	public OrderItem read(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

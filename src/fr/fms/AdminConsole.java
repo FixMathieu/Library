@@ -11,15 +11,19 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import fr.fms.business.Ibusiness;
 import fr.fms.dao.AdminDao;
+import fr.fms.dao.OrderItemDao;
 import fr.fms.dao.UserDao;
 import fr.fms.entities.Admin;
+import fr.fms.entities.OrderItem;
 import fr.fms.entities.User;
 
 
 public class AdminConsole {
 	private static AdminDao adminDao = new AdminDao();
 	private static UserDao userDao = new UserDao();
+	private static OrderItem orderItemDao = new OrderItem();
 	private static Scanner sc = new Scanner(System.in);
 	public static void main(String[] args) {
 		System.out.println("Bienvenu dans votre apllication de gestion");
@@ -27,10 +31,10 @@ public class AdminConsole {
 		
 	
 		
+		connectionAdmin();
 		
-		
-		while(choice != 6) {
-			connectionAdmin();
+		while(choice != 9) {
+			
 			displayMenu();
 			choice = scanInt();
 			switch(choice) {
@@ -50,13 +54,15 @@ public class AdminConsole {
 					break;
 				case 8 :updateArticle();
 					break;
-				case 9 : System.out.println("à bientôt dans notre boutique :)");
+				case 9 : System.out.println("Bonne journée à bientôt  :)");
 					break;					
 				default : System.out.println("veuillez saisir une valeur entre 1 et 9");
 			}
 		}
 	}
-
+/**
+ * Méthode pour voir tous les utilisateurs
+ */
 	private static void displayUser() {
 		System.out.println("");
 		for (User user : userDao.readAll())
@@ -84,7 +90,7 @@ public class AdminConsole {
 		String log = "";
 		String pass = "";
 		while (consult != 1) {
-		System.out.println("Saisissez vos identifiant :");
+		System.out.println("Saisissez vos identifiants  :");
 		System.out.println("");
 		System.out.print("Login : ");
 		log = sc.next();
@@ -100,8 +106,10 @@ public class AdminConsole {
 	}
 	}
 	private static void displayOrderItemById() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("Entrez l'id de la commande :");
+		int id=scanInt();		
+		OrderItem orderItem = orderItemDao.read(id);
+		System.out.println(orderItem);
 	}
 
 	private static void displayOrderItem() {
@@ -109,13 +117,21 @@ public class AdminConsole {
 		
 	}
 
-
+/**
+ * Méthode pour supprimer un utilisateur
+ */
 	private static void remUser() {
-		
-	userDao.delete(null);
-		
+	System.out.println("Entrez l'Id de l'utilisateur à supprimer :");
+	int id=scanInt();		
+	User user = userDao.read(id);
+	System.out.println(user);
+	if(user != null)		
+		userDao.delete(user);
+	
 	}
-
+/*
+ * Méthode pour afficher le menu
+ */
 	private static void displayMenu() {
 		System.out.println("\n" + "Pour réaliser une action, tapez le code correspondant :");
 		System.out.println("");
@@ -130,26 +146,36 @@ public class AdminConsole {
 		System.out.println("9 : sortir de l'application");
 		
 	}
-
+/**
+ * Méthode pour ajouter un uttilisateur
+ */
 	private static void addUser() {
 		int consult = 0;
 		UserDao userDao = new UserDao();
 	
 		while (consult != 1) {
-			System.out.println("Saisissez vos identifiant :");
+			System.out.println("Saisissez  les renseignements :");
 			System.out.println("");
+			
 			System.out.print("Name : ");
 			String name = sc.next();
+			
 			System.out.print("Email : ");
 			String email = sc.next();
+
 			System.out.print("Phone : ");
 			String phone = sc.next();
+			
 			System.out.print("Address : ");
-			String address = sc.next();
+			sc.nextLine();
+			String address = sc.nextLine();
+		
 			System.out.print("Login : ");
 			String login = sc.next();
+			
 			System.out.print("Password : ");
 			String password = sc.next();
+			
 			System.out.println("");
 			int result = 0;
 			for (User user : userDao.readAll()) {
@@ -161,11 +187,11 @@ public class AdminConsole {
 				new UserDao().create(new User(name, email, phone, address, login, password));
 				consult = 1;
 			} else {
-				System.out.println("Votre Email déjà utilisé recommencer");
+				System.out.println("Il existe déjà un compte à cette adresse Email");
 				System.out.println("");
 			}
 
-		
+			
 		}
 		
 	}

@@ -6,9 +6,12 @@
 package fr.fms.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
+import fr.fms.entities.Article;
 import fr.fms.entities.OrderItem;
 
 public class OrderItemDao implements Dao<OrderItem> {
@@ -35,7 +38,13 @@ public class OrderItemDao implements Dao<OrderItem> {
 	 */
 	@Override
 	public OrderItem read(int id) {
-		// TODO Auto-generated method stub
+		try (Statement statement = connection.createStatement()){
+			String str = "SELECT * FROM T_Order_items where IdArticle=" + id + ";";									
+			ResultSet rs = statement.executeQuery(str);
+			if(rs.next()) return new OrderItem(rs.getInt(1) , rs.getInt(2) , rs.getDouble(3) , rs.getInt(4), rs.getInt(5));
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} 	
 		return null;
 	}
 	/**

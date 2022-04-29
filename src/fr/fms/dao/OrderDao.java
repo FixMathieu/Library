@@ -6,6 +6,7 @@
  */
 package fr.fms.dao;
 
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,9 +21,10 @@ public class OrderDao implements Dao<Order> {
 	 */
 	@Override
 	public boolean create(Order obj) {
-		String str = "INSERT INTO T_Orders (Amount , IdUser) VALUES (?,?);";	
+		String str = "INSERT INTO T_Orders (Amount,IdUser) VALUES (?,?);";	
 		try (PreparedStatement ps = connection.prepareStatement(str,Statement.RETURN_GENERATED_KEYS)){	
 			ps.setDouble(1, obj.getAmount());
+			//ps.setDate(2, obj.getDate(now));
 			ps.setInt(2, obj.getIdUser());
 			ps.executeUpdate();
 			try(ResultSet generatedKeySet = ps.getGeneratedKeys()){

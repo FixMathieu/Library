@@ -25,7 +25,7 @@ CREATE TABLE T_Categories (
 CREATE TABLE T_Users (
 	IdUser int(4) PRIMARY KEY AUTO_INCREMENT,
 	NameUser varchar(30),
-	Email varchar(30),
+	Email varchar(30) NOT NULL UNIQUE,
 	Phone varchar (30),
 	Address varchar (30),
 	Login varchar(30) NOT NULL,
@@ -99,6 +99,8 @@ INSERT INTO T_Categories (Name,Description) VALUES ('Polar','histoire vrai et fc
 INSERT INTO T_Categories (Name,Description) VALUES ('Roman','Tous genres');
 INSERT INTO T_Categories (Name,Description) VALUES ('petit prix','pour le plaisir de tous');
 INSERT INTO T_Categories (Name,Description) VALUES ('Meilleurs ventes','Du moment');
+INSERT INTO T_Categories (Name,Description) VALUES ('Langues étrangères','Bienôt disponible');
+INSERT INTO T_Categories (Name,Description) VALUES ('Livres Numérique','Bienôt disponible');
 
 UPDATE T_Articles set IdCategory=1 WHERE IdArticle=1;
 UPDATE T_Articles set IdCategory=1 WHERE IdArticle=2;

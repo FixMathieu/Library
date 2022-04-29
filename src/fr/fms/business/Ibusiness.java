@@ -62,5 +62,7 @@ public interface Ibusiness {
 	 * @return Liste d'articles
 	 */
 	public ArrayList<Article> readArticlesByCatId(int idCat);
+
+	
 }
 
